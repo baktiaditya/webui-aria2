@@ -1,7 +1,7 @@
-$flag-icon-css-path: "~flag-icon-css/flags";
+$flag-icons-path: "~flag-icons/flags";
 
-@import "~flag-icon-css/sass/variables";
-@import "~flag-icon-css/sass/flag-icon-base";
+@import "~flag-icons/sass/variables";
+@import "~flag-icons/sass/flag-icons-base";
 
 // Include only the required flags
 @include flag-icon(us);

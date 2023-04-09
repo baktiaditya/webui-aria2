@@ -17,11 +17,11 @@ const config = {
     rules: [
       {
         test: /\.scss$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader", "sass-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader", "sass-loader"]
       },
       {
         test: /\.css$/,
-        use: [MiniCssExtractPlugin.loader, "css-loader", "postcss-loader"]
+        use: [MiniCssExtractPlugin.loader, "css-loader"]
       },
       {
         test: /\.svg$/,
@@ -29,7 +29,7 @@ const config = {
           {
             loader: "file-loader",
             options: {
-              name: "[name].[ext]",
+              name: "[name].[hash:8].[ext]",
               outputPath: "flags/"
             }
           }
@@ -39,7 +39,7 @@ const config = {
   },
   output: {
     path: BUILD_DIR,
-    filename: "[name].js"
+    filename: "[name].[hash:8].js"
   },
   plugins: [
     new CleanWebpackPlugin(["docs"]),
@@ -53,7 +53,7 @@ const config = {
       inject: "head"
     }),
     new MiniCssExtractPlugin({
-      filename: "[name].css"
+      filename: "[name].[hash:8].css"
     }),
     new WorkboxPlugin.GenerateSW()
   ],
